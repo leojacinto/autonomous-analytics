@@ -2,8 +2,6 @@
 
 Module: everything below runs in Model Pro → Data Flow.
 
-No Scripting nodes. Python backup: `ENERGY_RISK_PIPELINE_SPEC_PYTHON_BACKUP.md` (superseded).
-
 Relationships already built in Data Model (verified): `x_snc_util_da_nmi.sys_id` ⟷ `x_snc_util_da_billing.nmi`/`x_snc_util_da_usage.nmi`/`x_snc_util_da_meter_read.nmi`/`x_snc_util_da_solar_export.nmi`, `x_snc_util_da_property.sys_id` ⟷ `x_snc_util_da_nmi.property`, `x_snc_util_da_customer.sys_id` ⟷ `x_snc_util_da_property.customer`.
 
 Key fact enabling full native: `x_snc_util_da_meter_read.previous_reading_kwh` is already a populated column (generator writes it per-row). Rollback detection uses this directly, no lag/shift step required.
