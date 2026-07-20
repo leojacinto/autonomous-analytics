@@ -2,6 +2,36 @@
 
 ServiceNow scoped app (`x_snc_util_da_*`) + seed data generator, plus the Pyramid Data Flow spec for the hardship/tamper risk-scoring pipeline built on top of it.
 
+## Overview
+
+```mermaid
+flowchart LR
+    subgraph SN["ServiceNow"]
+        FA["fluent-app/\nUtilities Analytics scoped app\n7 x_snc_util_da_* tables"]
+        SEED["scripts/generate-and-load.mjs\nseed data"]
+        SEED -->|loads via REST| FA
+    end
+
+    subgraph SETUP["Connection Setup"]
+        SETUPDOC["SERVICENOW_SQL_API_SETUP.md\nplugin / role / ACL / IP allowlist"]
+    end
+
+    subgraph EVAL["Data Validation"]
+        EVALDOC["DATA_CRITICAL_EVALUATION.md\nlabel provenance, no leakage"]
+    end
+
+    subgraph PYRAMID["Pyramid Analytics"]
+        NAV["CLASSIFICATION_PIPELINE_NAV.md\nModel Pro / Data Model / join setup"]
+        SPEC["ENERGY_RISK_PIPELINE_SPEC.md\nData Flow: calc columns, summarize,\njoins, risk score, ML, outliers"]
+        DISC["Discover\nanalyst worklist + charts"]
+        NAV --> SPEC --> DISC
+    end
+
+    FA -->|SQL API connection| SETUP
+    SETUP --> NAV
+    EVAL -.->|informs label trust| SPEC
+```
+
 ## Contents
 
 - [`fluent-app/`](fluent-app/) — the ServiceNow Fluent scoped app (`Utilities Analytics`, scope `x_snc_util_da`). Defines the 7 tables (`customer`, `property`, `nmi`, `usage`, `billing`, `meter_read`, `solar_export`) and the import sets used to load seed data.
