@@ -2,7 +2,7 @@
 
 Confirmed against Pyramid's own docs (`OpenEditDirectModel.htm`, `ModelPro.htm`, `DataFlowInterface.htm`). No scripting, no LLM in this navigation — pure native Data Flow/Data Model UI.
 
-Target model: point the `ServiceNow` source node at `x_snc_util_da_customer`, `property`, `nmi`, `usage`, `billing`, `meter_read`, `solar_export` (500 NMIs, real `hardship_flag`/`tamper_flag` labels — see `DATA_CRITICAL_EVALUATION.md`). This is a fresh model build, not a rebuild of the old `Energy Utilities` model on `x_snc_energy_custo_*`.
+Target model: point the `ServiceNow` source node at `x_snc_util_da_customer`, `x_snc_util_da_property`, `x_snc_util_da_nmi`, `x_snc_util_da_usage`, `x_snc_util_da_billing`, `x_snc_util_da_meter_read`, `x_snc_util_da_solar_export` (500 NMIs, real `hardship_flag`/`tamper_flag` labels — see `DATA_CRITICAL_EVALUATION.md`). This is a fresh model build, not a rebuild of the old `Energy Utilities` model on `x_snc_energy_custo_*`.
 
 ## 0. Get into the Data Flow editor
 

@@ -13,7 +13,7 @@ Not confirmed: whether Pyramid's built-in "ServiceNow" Base SQL Style connector 
 - System Security → Users → the Pyramid service account → assign `sn_jdbc_rest_access` (or `sn_odbc_rest_access`).
 
 ## 3. ACLs
-- For each source table (`x_snc_util_da_customer`, `property`, `nmi`, `usage`, `billing`, `meter_read`, `solar_export`): create an ACL with operation `egress_sql`, and confirm the existing `read` ACL already grants the service account access.
+- For each source table (`x_snc_util_da_customer`, `x_snc_util_da_property`, `x_snc_util_da_nmi`, `x_snc_util_da_usage`, `x_snc_util_da_billing`, `x_snc_util_da_meter_read`, `x_snc_util_da_solar_export`): create an ACL with operation `egress_sql`, and confirm the existing `read` ACL already grants the service account access.
 
 ## 4. IP allowlist
 - ServiceNow → System Security → **Authentication Policies** → **SQL API Authentication Policy** → **Policy Inputs** → the Pyramid service account → **IP Range** tab.
