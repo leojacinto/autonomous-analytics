@@ -5,7 +5,7 @@ ServiceNow scoped app (`x_snc_util_da_*`) + seed data generator, plus the Pyrami
 ## Overview
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph SN["ServiceNow"]
         FA["fluent-app/\nUtilities Analytics scoped app\n7 x_snc_util_da_* tables"]
         SEED["scripts/generate-and-load.mjs\nseed data"]
