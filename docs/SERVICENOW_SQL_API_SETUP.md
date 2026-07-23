@@ -1,8 +1,6 @@
 # ServiceNow SQL API / Pyramid Connection — Access Setup
 
-Confirmed (ServiceNow docs): SQL API requires a plugin, a role, per-table ACLs, and an IP allowlist. Connection string format: `jdbc:servicenow://https://<instance>.service-now.com`.
-
-Not confirmed: whether Pyramid's built-in "ServiceNow" Base SQL Style connector is this exact SQL API driver. That was a hypothesis based on pattern-matching the connection string format and the `Requested URI does not represent any resource` error, not verified against Pyramid's own connector docs.
+SQL API requires a plugin, a role, per-table ACLs, and an IP allowlist. Connection string format: `jdbc:servicenow://https://<instance>.service-now.com`.
 
 ## 1. Check/install the SQL API plugin
 - ServiceNow → **System Definition** → **Plugins** (Plugin Manager) → search `SQL API`.
